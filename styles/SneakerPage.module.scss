@@ -1,0 +1,294 @@
+.mainBlock {
+  border: 2px solid green;
+
+  padding: 1em;
+  width: 70%;
+  margin: 0 auto;
+  max-width: 1500px;
+
+  .blockNav {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    padding: 5px;
+
+    .blockNavArrow {
+      display: flex;
+      align-items: center;
+      margin-right: 10px;
+      cursor: pointer;
+
+      &:hover {
+        opacity: .5;
+      }
+    }
+
+
+    .blockSection {
+      font-size: 0.9em;
+      opacity: .5;
+
+      span {
+        margin: 0 7px;
+      }
+
+      .pageLink {
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .sneakersBlock {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+
+    .sneakersBlockImage {
+      min-width: 700px;
+      border: 2px solid blue;
+      padding: 1em;
+      display: flex;
+      flex-flow: row nowrap;
+
+      .sneakersBlockImageList {
+        border: 2px solid red;
+        min-width: 100px;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+
+        .sneakersBlockImageListElem {
+          border: 2px solid rgba(0, 0, 0, 0);
+          padding: 2px;
+          margin-bottom: 10px;
+          border-radius: 3px;
+          cursor: pointer;
+
+          div {
+            height: 65px;
+          }
+
+          img {
+            width: 65px;
+            height: 65px;
+          }
+
+          &:hover {
+            border: 2px solid rgba(0, 0, 255, 0.5);
+          }
+
+          &.active {
+            border: 2px solid rgba(0, 0, 255, 0.8);
+          }
+        }
+      }
+
+      .sneakersBlockImageMain {
+        border: 2px solid green;
+
+        .sneakersBlockImageMainDiv {
+          img {
+            width: 600px;
+            height: 800px;
+            cursor: none;
+          }
+
+          .zoomedImage {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border: 2px solid #000;
+            border-radius: 50%;
+            cursor: none;
+            z-index: 5;
+          }
+        }
+      }
+    }
+
+    .sneakersBlockInfo {
+      width: 40%;
+      max-width: 350px;
+      padding: 1em;
+      display: flex;
+      flex-flow: column;
+      background-color: rgba(0, 0, 0, 0.15);
+      border-radius: 6px;
+      box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2);
+
+      .infoName {
+        width: 100%;
+        display: flex;
+        flex-flow: column;
+
+        .infoNameBrand {
+          text-align: center;
+          font-size: 2em;
+        }
+
+        .infoNameModel {
+          text-align: center;
+          font-size: 1.3em;
+        }
+      }
+
+      .infoPrice {
+        margin: 10px 0;
+        text-align: center;
+        font-size: 1.3em;
+      }
+
+      .infoBlockArticle {
+        width: 100%;
+        padding: .5em;
+        cursor: pointer;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+
+        .infoBlockArticleText {
+          width: 80%;
+
+          .infoBlockArticleTitle {
+            color: rgba(0, 0, 0, 0.6);
+            font-size: .8em;
+          }
+
+          .infoArticle {
+            text-align: center;
+          }
+        }
+
+        .infoBlockArticleIcon {
+          width: 20%;
+          text-align: center;
+          opacity: 0.6;
+        }
+
+        &:hover .infoBlockArticleIcon {
+          opacity: 1;
+        }
+      }
+
+      .infoBlockButton {
+        width: 90%;
+        margin: 10px auto 5px auto;
+        padding: .5em;
+        text-align: center;
+        background-color: black;
+        color: white;
+        cursor: pointer;
+        border-radius: 5px;
+        user-select: none;
+        transition: opacity .15s linear;
+
+        span {
+          font-size: 1.2em;
+        }
+
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+
+      .infoBlockButtonModal {
+        width: 90%;
+        margin: 10px auto 5px auto;
+        padding: .5em;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        border-radius: 5px;
+        transition: opacity .15s linear;
+        user-select: none;
+
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+
+      .infoBlockReplacement {
+        width: 100%;
+        margin-top: 10px;
+        display: flex;
+        flex-flow: column;
+
+        .infoBlockReplacementTitle {
+          text-align: center;
+        }
+
+        .replacementList {
+          padding: 5px;
+          border-radius: 5px;
+          width: 100%;
+          margin: 10px 0;
+          display: flex;
+          flex-flow: row;
+          overflow-x: auto;
+          overflow-y: hidden;
+          user-select: none;
+
+          &::-webkit-scrollbar {
+            display: none;
+          }
+
+          .replacementElem {
+            margin-right: 5px;
+            border-radius: 2px;
+            cursor: pointer;
+            min-width: 60px;
+            display: flex;
+
+            img {
+              border-radius: 2px;
+            }
+
+            &:hover {
+              opacity: 0.8;
+            }
+
+            &.active {
+              img {
+                border: 1px solid rgba(0, 0, 0, 0.8);
+                opacity: 0.8;
+              }
+            }
+
+            &:last-child {
+              margin-right: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.waveBtn {
+  position: relative;
+  overflow: hidden;
+}
+
+.wave {
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 255, .4);
+  border-radius: 50%;
+  transform: scale(0);
+  animation: waves .5s linear;
+  pointer-events: none;
+  position: absolute;
+  user-select: none;
+}
+
+@keyframes waves {
+  100% {
+    transform: scale(5);
+    opacity: 0;
+  }
+}

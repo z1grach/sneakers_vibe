@@ -1,0 +1,45 @@
+.footerBlock {
+  width: 100%;
+  min-height: 200px;
+  background-color: #000000;
+  color: #ffffff;
+
+  .infoBlock {
+    //border: 2px solid green;
+
+    padding: 1em;
+    width: 70%;
+    margin: 0 auto;
+    max-width: 1500px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+
+    h3 {
+      text-align: center;
+    }
+  }
+
+  .copyRight {
+    padding: 10px 0;
+    text-align: center;
+  }
+}
+
+@media (max-width: 1600px) {
+  .infoBlock {
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 1600px) {
+  .infoBlock {
+    flex-flow: column !important;
+    justify-content: center !important;
+
+    & > div {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+  }
+}

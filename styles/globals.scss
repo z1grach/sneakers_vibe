@@ -1,0 +1,60 @@
+/* Установка дефолтных значений для всех элементов HTML */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Установка дополнительных стилей для body */
+body {
+  font-family: 'Codec Pro', 'Arial', sans-serif;
+  font-size: 12pt;
+  line-height: 1.5;
+}
+
+/* Установка базовых стилей для заголовков */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Установка базовых стилей для ссылок */
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+/* Установка стилей для изображений */
+img {
+  max-width: 100%;
+}
+
+/* Установка базовых стилей для списков */
+ul, ol {
+  margin-bottom: 20px;
+}
+
+/* Установка базовых стилей для кнопок */
+button, input[type="submit"], input[type="reset"] {
+  border: none;
+  background-color: #000;
+  color: #fff;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+/* Fonts*/
+@font-face {
+  font-family: "Codec Pro";
+  src: url("../public/fonts/SourceCodePro-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+
+/*
+@media (max-width: 1000px) {
+  body {
+    font-size: 16pt;
+  }
+}*/

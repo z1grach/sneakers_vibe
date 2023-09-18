@@ -1,0 +1,264 @@
+.mainContent {
+  //border: 2px solid blue;
+
+  padding: 1em;
+  width: 90%;
+  margin: 0 auto;
+  max-width: 1700px;
+  display: flex;
+  flex-flow: row;
+  min-height: 100vh;
+
+  .sneakersMain {
+    //border: 2px solid #bc10ff;
+    width: 85%;
+    display: flex;
+    flex-flow: column;
+
+    .divSorting {
+      width: 100%;
+      display: flex;
+      flex-flow: row;
+
+      & > div {
+        display: flex;
+        align-items: center;
+        padding: 0 10px;
+
+        .filterIcon {
+          display: flex;
+          align-items: center;
+          margin-right: 5px;
+        }
+      }
+
+      .divSortingFilter {
+        height: 30px;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.1);
+        border-radius: 3px;
+        box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+      }
+
+      select {
+        width: 200px;
+        outline: 0;
+        border: 0;
+
+        option {
+          height: 30px !important;
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+    .sneakersList {
+      width: 100%;
+      display: flex;
+      flex-flow: row wrap;
+
+      .sneakersElement {
+        width: 20%;
+        max-width: 250px;
+        min-width: 200px;
+        margin: 10px 5px;
+        padding: .5em;
+        border-radius: 3px;
+        transition: background-color .4s linear;
+        cursor: pointer;
+
+        .imageDiv {
+          width: 100%;
+          overflow: hidden;
+
+          img {
+            width: 100%;
+            transition: .4s;
+            display: block;
+          }
+        }
+
+        .infoDiv {
+          margin-top: 5px;
+          display: flex;
+          flex-flow: column nowrap;
+          text-align: center;
+        }
+
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.2);
+
+          .imageDiv img {
+            transform: scale(1.2);
+          }
+        }
+      }
+    }
+
+    .divPage {
+      padding: 1em;
+      width: 100%;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+
+      & > div {
+        width: 35px;
+        height: 35px;
+        background-color: rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 3px;
+        border-radius: 5px;
+        cursor: pointer;
+        user-select: none;
+
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        &.active {
+          background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .arrowLeft {
+          position: relative;
+          display: inline-block;
+          width: 0;
+          height: 0;
+          border-top: 5px solid transparent;
+          border-bottom: 5px solid transparent;
+          border-right: 5px solid black;
+        }
+
+        .arrowRight {
+          position: relative;
+          display: inline-block;
+          width: 0;
+          height: 0;
+          border-top: 5px solid transparent;
+          border-bottom: 5px solid transparent;
+          border-left: 5px solid black;
+        }
+      }
+    }
+  }
+
+  .filter {
+    //border: 2px solid green;
+    position: sticky;
+    width: 15%;
+    min-width: 190px;
+    padding: .5em;
+    display: flex;
+    flex-flow: column;
+    top: 10vh;
+    height: 85vh;
+    overflow-y: auto;
+    bottom: 300px;
+
+    .filterName {
+      width: 100%;
+      font-size: 16pt;
+      height: 40px;
+      display: flex;
+      align-items: center;
+
+      .resetFilter {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        cursor: pointer;
+
+        &:hover {
+          opacity: 0.6;
+        }
+
+        .divClose {
+          background-color: rgba(0, 0, 0, 0.3);
+          width: 30px;
+          height: 30px;
+          border-radius: 50px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        span {
+          font-size: 11pt;
+          font-weight: bold;
+          margin-left: 3px;
+        }
+      }
+    }
+
+    .checkboxCategory {
+      margin-top: 20px;
+
+      & > span {
+        font-size: 14pt;
+      }
+
+      .checkboxElem {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        cursor: pointer;
+
+        span {
+          margin-left: 5px;
+        }
+
+        input {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1600px) {
+  .mainContent {
+    width: 100%;
+  }
+
+  .sneakersElement {
+    width: 230px !important;
+  }
+}
+
+@media (max-width: 1300px) {
+  .mainContent {
+    width: 100%;
+  }
+
+  .sneakersElement {
+    width: 200px !important;
+  }
+}
+
+@media (max-width: 1000px) {
+  .filter {
+    display: none !important;
+  }
+
+  .sneakersMain {
+    width: 100% !important;
+
+    .sneakersElement {
+      width: 50% !important;
+      max-width: none !important;
+      min-width: 0 !important;
+      margin: 10px 0 !important;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0) !important;
+      }
+    }
+  }
+}

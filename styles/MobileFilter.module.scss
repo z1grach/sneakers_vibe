@@ -1,0 +1,96 @@
+.filter {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffffff;
+  z-index: 20;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+
+  .headerFilter {
+    position: sticky;
+    left: 0;
+    top: 0;
+    background-color: #ffffff;
+    border-bottom: 1px solid #000000;
+
+    .headerFilterDiv {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: .5em;
+    }
+
+    .headerFilterClose {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .headerFilterTitle {
+      text-align: center;
+      font-size: 1.3em;
+      cursor: default;
+    }
+
+    .headerFilterReset {
+      text-align: center;
+      font-size: 0.9em;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  }
+
+  .contentFilter {
+    padding: 1em;
+
+    :first-child {
+      margin-top: 0 !important;
+    }
+
+    .checkboxCategory {
+      margin-top: 20px;
+
+      .checkboxElem {
+        padding: .5em 0;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        cursor: pointer;
+        user-select: none;
+
+        span {
+          margin-left: .5em;
+        }
+
+        input[type="checkbox"] {
+          cursor: pointer;
+          background-color: #000 !important;
+        }
+      }
+    }
+  }
+
+  .showButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(0, 0, 0);
+    border-radius: 30px;
+    color: white;
+    height: 50px;
+    width: 70%;
+    max-width: 400px;
+    min-width: 300px;
+    margin: 10px auto;
+    cursor: pointer;
+    user-select: none;
+  }
+}
