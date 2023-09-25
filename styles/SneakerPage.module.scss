@@ -1,10 +1,11 @@
 .mainBlock {
-  border: 2px solid green;
+  //border: 2px solid green;
 
   padding: 1em;
   width: 70%;
   margin: 0 auto;
   max-width: 1500px;
+  min-height: 100vh;
 
   .blockNav {
     width: 100%;
@@ -49,14 +50,14 @@
     justify-content: space-between;
 
     .sneakersBlockImage {
-      min-width: 700px;
-      border: 2px solid blue;
+      //min-width: 700px;
+      //border: 2px solid blue;
       padding: 1em;
       display: flex;
       flex-flow: row nowrap;
 
       .sneakersBlockImageList {
-        border: 2px solid red;
+        //border: 2px solid red;
         min-width: 100px;
         display: flex;
         flex-flow: column;
@@ -89,7 +90,7 @@
       }
 
       .sneakersBlockImageMain {
-        border: 2px solid green;
+        //border: 2px solid green;
 
         .sneakersBlockImageMainDiv {
           img {
@@ -112,8 +113,7 @@
     }
 
     .sneakersBlockInfo {
-      width: 40%;
-      max-width: 350px;
+      width: 350px;
       padding: 1em;
       display: flex;
       flex-flow: column;
@@ -286,9 +286,107 @@
   user-select: none;
 }
 
+.blockImageMobile {
+  border: 2px solid green;
+
+  width: 100%;
+  margin-bottom: 10px;
+  user-select: none;
+
+
+  .itcss {
+    position: relative;
+    max-width: 600px;
+    margin-right: auto;
+    margin-left: auto;
+    user-select: none;
+
+    .itcss__wrapper {
+      position: relative;
+      overflow: hidden;
+      background-color: #eee;
+      user-select: none;
+
+      .itcss__items {
+        display: flex;
+        transform-style: preserve-3d;
+        backface-visibility: hidden;
+        transition: transform 0.5s ease;
+        will-change: transform;
+        user-select: none;
+
+        .itcss__item {
+          position: relative;
+          flex: 0 0 100%;
+          max-width: 100%;
+          transform-style: preserve-3d;
+          backface-visibility: hidden;
+          will-change: transform;
+          user-select: none;
+
+          div {
+            user-select: none;
+
+            img {
+              pointer-events: none;
+              user-select: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 @keyframes waves {
   100% {
     transform: scale(5);
     opacity: 0;
+  }
+}
+
+@media (max-width: 1700px) {
+  .mainBlock {
+    width: 80%;
+    max-width: none;
+  }
+}
+
+@media (max-width: 1500px) {
+  .mainBlock {
+    width: 90%;
+  }
+}
+
+@media (max-width: 1300px) {
+  .mainBlock {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .sneakersBlockImageMainDiv img {
+    width: 500px !important;
+    height: 600px !important;
+  }
+
+  .sneakersBlockInfo {
+    width: 300px !important;
+  }
+}
+
+@media (max-width: 1000px) {
+  .sneakersBlock {
+    flex-flow: column !important;
+    align-items: center !important;
+  }
+
+  .sneakersBlockInfo {
+    width: 100% !important;
+  }
+
+  .sneakersBlockImageMainDiv img {
+    width: 250px !important;
+    height: 400px !important;
   }
 }

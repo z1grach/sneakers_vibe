@@ -4,10 +4,7 @@ import xlsx from "xlsx";
 import fs from "fs";
 import path from "path";
 import {ISneakers} from "@/interface";
-import styles from "@/styles/SneakerPage.module.scss";
-import SneakerPageImage from "@/components/sneakerPage/SneakerPageImage";
-import SneakerPageInfoBlock from "@/components/sneakerPage/SneakerPageInfoBlock";
-import NavSection from "@/components/NavBar/NavSection";
+import SneakerMainContent from "@/components/sneakerPage/SneakerMainContent";
 
 export default function Page({sneaker}) {
     return (
@@ -21,15 +18,7 @@ export default function Page({sneaker}) {
                 />
                 <link rel="icon" href="/sneaker_svg.svg"/>
             </Head>
-            <div>
-                <div className={styles.mainBlock}>
-                    <NavSection/>
-                    <div className={styles.sneakersBlock}>
-                        <SneakerPageImage sneaker={sneaker}/>
-                        <SneakerPageInfoBlock sneaker={sneaker}/>
-                    </div>
-                </div>
-            </div>
+            <SneakerMainContent sneaker={sneaker}/>
         </>
     )
 }

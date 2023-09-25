@@ -50,7 +50,6 @@ const SneakerPageReplacement = observer(({
     }
 
     const handleClick = (e: any) => {
-        console.log(flagRef.current)
         if (flagRef.current) {
             e.preventDefault();
         }
