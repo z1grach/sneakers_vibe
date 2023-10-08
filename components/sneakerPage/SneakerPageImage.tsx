@@ -7,8 +7,6 @@ const SneakerPageImage = observer(({sneaker}: { sneaker: ISneakers }) => {
     const [image, setImage] = useState(`${sneaker.article}_${1}`);
 
     const handleMouseMoveImg = (e: any) => {
-        e.preventDefault();
-
         const imageElem = e.currentTarget.parentNode.firstChild;
         const zoomedImage = e.currentTarget.parentNode.lastChild;
 
@@ -21,8 +19,6 @@ const SneakerPageImage = observer(({sneaker}: { sneaker: ISneakers }) => {
     }
 
     const handleMouseMove = (e: any) => {
-        e.preventDefault();
-
         const imageElem = e.currentTarget.parentNode.firstChild;
         const zoomedImage = e.currentTarget.parentNode.lastChild;
 
@@ -87,33 +83,46 @@ const SneakerPageImage = observer(({sneaker}: { sneaker: ISneakers }) => {
     }, [sneaker]);
 
     return (
-        <div className={styles.sneakersBlockImage}>
-            <div className={styles.sneakersBlockImageList}>
+        <div
+            className={styles.sneakersBlockImage}
+            draggable={false}
+        >
+            <div
+                className={styles.sneakersBlockImageList}
+                draggable={false}
+            >
                 {images.map((el: string) => {
                     return (
                         <div
                             key={'images_' + el}
                             className={styles.sneakersBlockImageListElem + (image === el ? ' ' + styles.active : '')}
                             onClick={() => setImage(el)}
+                            draggable={false}
                         >
-                            <div>
+                            <div draggable={false}>
                                 <img
                                     src={`/${el}.jpg`}
                                     alt={sneaker.brand + ' ' + sneaker.model + ' ' + el}
+                                    draggable={false}
                                 />
                             </div>
                         </div>
                     )
                 })}
             </div>
-            <div className={styles.sneakersBlockImageMain}>
+            <div
+                className={styles.sneakersBlockImageMain}
+                draggable={false}
+            >
                 <div
                     className={styles.sneakersBlockImageMainDiv}
+                    draggable={false}
                 >
                     <img
                         src={`/${image}.jpg`}
                         alt={sneaker.brand + ' ' + sneaker.model + ' ' + image}
                         onMouseMove={handleMouseMoveImg}
+                        draggable={false}
                     />
                     <div
                         id={'zoom'}
@@ -121,6 +130,7 @@ const SneakerPageImage = observer(({sneaker}: { sneaker: ISneakers }) => {
                         style={{display: 'none'}}
                         onMouseMove={handleMouseMove}
                         onMouseLeave={handleMouseLeave}
+                        draggable={false}
                     />
                 </div>
             </div>

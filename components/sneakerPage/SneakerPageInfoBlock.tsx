@@ -39,6 +39,7 @@ const SneakerPageInfoBlock = observer(({sneaker}: { sneaker: ISneakers }) => {
                             width={20}
                             height={20}
                             alt="copy_svg"
+                            draggable={false}
                         />
                     </div>
                 </div>
@@ -54,6 +55,7 @@ const SneakerPageInfoBlock = observer(({sneaker}: { sneaker: ISneakers }) => {
                             width={20}
                             height={20}
                             alt="copy_svg"
+                            draggable={false}
                         />
                     </div>
                 </div>

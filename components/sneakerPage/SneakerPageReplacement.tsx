@@ -61,24 +61,24 @@ const SneakerPageReplacement = observer(({
             className={styles.replacementList}
             onMouseDown={handleMouseDown}
             ref={divRef}
+            draggable={false}
         >
             {arr.map((el: ISneakerReplacement) => {
-
                 return (
                     <Link
                         key={'colors_' + el.article}
                         className={styles.replacementElem + (el.article === currentArticle ? ' ' + styles.active : '')}
                         title={el.color}
                         href={`/sneakers/${el.article}`}
-                        onMouseDown={(e: any) => e.preventDefault()}
                         onClick={handleClick}
+                        draggable={false}
                     >
                         <Image
                             src={`/${el.article}_1.jpg`}
                             width={60}
                             height={60}
                             alt={`/${el.article}_1.jpg`}
-                            onMouseDown={(e: any) => e.preventDefault()}
+                            draggable={false}
                         />
                     </Link>
                 )

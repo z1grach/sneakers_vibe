@@ -106,7 +106,7 @@ const SneakerImageMobile = observer(({sneaker}: { sneaker: ISneakers }) => {
         if (itemRef.current) {
             itemRef.current.style.transform = `translate(0px, 0px)`;
         }
-    }, [sneaker])
+    }, [sneaker]);
 
     return (
         <div

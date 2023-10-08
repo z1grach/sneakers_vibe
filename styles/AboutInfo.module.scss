@@ -1,0 +1,47 @@
+.mainContent {
+  padding: 2em;
+  width: 90%;
+  margin: 0 auto;
+  max-width: 1400px;
+  min-height: 75vh;
+
+  & > div {
+    margin-bottom: 50px;
+
+    h1 {
+      font-size: 1.8em;
+      font-weight: normal;
+    }
+
+    h2 {
+      font-size: 1em;
+    }
+
+    p {
+      margin-top: 15px;
+
+      span {
+        color: #8f8f8f;
+        text-decoration: underline;
+        cursor: pointer;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+
+    .imageDiv {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
+
+
+@media (max-width: 1000px) {
+  .mainContent {
+    padding: 1em !important;
+    width: 100% !important;
+  }
+}
