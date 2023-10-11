@@ -1,0 +1,35 @@
+.blockNav {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  padding: 5px;
+
+  .blockNavArrow {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    cursor: pointer;
+
+    &:hover {
+      opacity: .5;
+    }
+  }
+
+
+  .blockSection {
+    font-size: 0.9em;
+    opacity: .5;
+
+    span {
+      margin: 0 7px;
+    }
+
+    .pageLink {
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

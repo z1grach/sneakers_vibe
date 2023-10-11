@@ -61,39 +61,51 @@
       display: flex;
       flex-flow: row wrap;
 
-      .sneakersElement {
+      .shellElem {
         width: 20%;
-        max-width: 250px;
-        min-width: 200px;
-        margin: 10px 5px;
-        padding: .5em;
-        border-radius: 3px;
-        transition: background-color .4s linear;
-        cursor: pointer;
+        padding: .7em;
 
-        .imageDiv {
+        .sneakersElement {
+          display: block;
           width: 100%;
+          border-radius: 6px;
           overflow: hidden;
+          cursor: pointer;
+          background-color: rgba(0, 0, 0, 0.4);
+          transition: .1s linear;
 
-          img {
+          .imageDiv {
             width: 100%;
-            transition: .4s;
-            display: block;
+            overflow: hidden;
+
+            img {
+              width: 100%;
+              display: block;
+              transition: .2s linear;
+              transform: scale(1.1);
+            }
           }
-        }
 
-        .infoDiv {
-          margin-top: 5px;
-          display: flex;
-          flex-flow: column nowrap;
-          text-align: center;
-        }
+          .infoDiv {
+            width: 100%;
+            padding: 10px 5px;
+            display: flex;
+            flex-flow: column nowrap;
+            text-align: center;
+            //color: white;
 
-        &:hover {
-          background-color: rgba(0, 0, 0, 0.2);
+            span {
+              display: block;
+              width: 100%;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
+          }
 
-          .imageDiv img {
-            transform: scale(1.2);
+          &:hover {
+            transform: scale(1.01);
+            box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.3);
           }
         }
       }
@@ -222,13 +234,15 @@
   }
 }
 
+@media (max-width: 1700px) {
+  .shellElem {
+    width: 25% !important;
+  }
+}
+
 @media (max-width: 1600px) {
   .mainContent {
     width: 100%;
-  }
-
-  .sneakersElement {
-    width: 230px !important;
   }
 }
 
@@ -237,28 +251,34 @@
     width: 100%;
   }
 
-  .sneakersElement {
-    width: 200px !important;
+  .shellElem {
+    width: 33% !important;
   }
 }
 
 @media (max-width: 1000px) {
+  .mainContent {
+    padding: .5em !important;
+  }
+
   .filter {
     display: none !important;
   }
 
   .sneakersMain {
     width: 100% !important;
+  }
 
-    .sneakersElement {
-      width: 50% !important;
-      max-width: none !important;
-      min-width: 0 !important;
-      margin: 10px 0 !important;
+  .shellElem {
+    width: 50% !important;
+    padding: .2em !important;
 
-      &:hover {
-        background-color: rgba(0, 0, 0, 0) !important;
-      }
+    .sneakersElement:hover {
+      box-shadow: none !important;
+    }
+
+    .infoDiv {
+      //font-size: 0.8em;
     }
   }
 }

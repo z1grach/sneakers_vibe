@@ -1,4 +1,4 @@
-import React, {Fragment, useMemo} from 'react';
+import React, {useMemo} from 'react';
 import {observer} from "mobx-react-lite";
 import styles from "@/styles/Sneakers.module.scss";
 import {ISneakers} from "@/interface";
@@ -73,40 +73,48 @@ const SneakersList = observer(({sneakers}: { sneakers: ISneakers[] }) => {
 
 
     return (
-        <>
-            {data
+        <div className={styles.sneakersMain}>
+            <SneakersSort/>
+            {data && data.length
                 ?
-                <div className={styles.sneakersMain}>
-                    <SneakersSort/>
+                <>
                     <div className={styles.sneakersList}>
                         {data.map((el: ISneakers, index: number) => {
                             if (index >= coreStore.pageList * 60 && index < coreStore.pageList * 60 + 60) {
                                 return (
-                                    <Link
+                                    <div
                                         key={'sneaker_id_' + el.article}
-                                        className={styles.sneakersElement}
-                                        href={`/sneakers/${el.article}`}
+                                        className={styles.shellElem}
                                     >
-                                        <div className={styles.imageDiv}>
-                                            <img
-                                                src={`/${el.article}_1.jpg`}
-                                                alt={el.brand + ' ' + el.model}
-                                            />
-                                        </div>
-                                        <div className={styles.infoDiv}>
-                                            <span>{el.brand + ' ' + el.model}</span>
-                                            <strong>{el.price + ' ₽'}</strong>
-                                        </div>
-                                    </Link>
+                                        <Link
+                                            className={styles.sneakersElement}
+                                            href={`/sneakers/${el.article}`}
+                                        >
+                                            <div className={styles.imageDiv}>
+                                                <img
+                                                    src={`/${el.article}_1.jpg`}
+                                                    alt={el.brand + ' ' + el.model}
+                                                />
+                                            </div>
+                                            <div className={styles.infoDiv}>
+                                                <span>{el.brand}</span>
+                                                <span>{el.model}</span>
+                                                <strong>{el.price + ' ₽'}</strong>
+                                            </div>
+                                        </Link>
+                                    </div>
                                 )
-                            } else return <Fragment key={'sneaker_id_' + el.article}/>;
+                            } else return null;
                         })}
                     </div>
                     <SneakersPageCount pageLength={Math.floor(data.length / 60)}/>
+                </>
+                :
+                <div>
+                    По вашему запросу ничего не нашлось
                 </div>
-                : <></>
             }
-        </>
+        </div>
     );
 });
 

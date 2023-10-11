@@ -1,16 +1,20 @@
 import React from 'react';
 import {observer} from "mobx-react-lite";
-import styles from "@/styles/SneakerPage.module.scss";
+import styles from "@/styles/NavSelection.module.scss";
 import Image from "next/image";
 import ArrowSvg from "@/public/arrow_icon.svg";
 import Link from "next/link";
-import {useRouter} from 'next/router';
 
-const NavSection = observer(() => {
-    const router = useRouter();
+interface INavSectionProps {
+    pages: {
+        link: string;
+        name: string;
+    }[]
+}
 
+const NavSection = observer(({pages}: INavSectionProps) => {
     const handleClick = () => {
-        router.push('/sneakers');
+        history.back();
     }
 
     return (
@@ -29,17 +33,17 @@ const NavSection = observer(() => {
             </div>
             <div className={styles.blockSection}>
                 <Link
-                    href="/"
+                    href={pages[0].link}
                     className={styles.pageLink}
                 >
-                    Главная
+                    {pages[0].name}
                 </Link>
                 <span>/</span>
                 <Link
-                    href="/sneakers"
+                    href={pages[1].link}
                     className={styles.pageLink}
                 >
-                    Кроссовки
+                    {pages[1].name}
                 </Link>
             </div>
         </div>

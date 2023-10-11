@@ -5,35 +5,38 @@
   max-width: 1400px;
   min-height: 75vh;
 
-  & > div {
-    margin-bottom: 50px;
+  .textContent {
+    & > div {
+      margin-bottom: 50px;
 
-    h1 {
-      font-size: 1.8em;
-      font-weight: normal;
-    }
+      h1 {
+        font-size: 1.8em;
+        font-weight: normal;
+      }
 
-    h2 {
-      font-size: 1em;
-    }
+      h2 {
+        font-size: 1em;
+        margin-top: 30px;
+      }
 
-    p {
-      margin-top: 15px;
+      p {
+        margin-top: 15px;
 
-      span {
-        color: #8f8f8f;
-        text-decoration: underline;
-        cursor: pointer;
+        span {
+          color: #8f8f8f;
+          text-decoration: underline;
+          cursor: pointer;
 
-        &:hover {
-          text-decoration: none;
+          &:hover {
+            text-decoration: none;
+          }
         }
       }
-    }
 
-    .imageDiv {
-      width: 100%;
-      text-align: center;
+      .imageDiv {
+        width: 100%;
+        text-align: center;
+      }
     }
   }
 }
