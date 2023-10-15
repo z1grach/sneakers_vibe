@@ -343,6 +343,10 @@
 }
 
 @media (max-width: 1000px) {
+  .mainBlock {
+    padding: 0 !important;
+  }
+
   .sneakersBlock {
     flex-flow: column !important;
     align-items: center !important;

@@ -7,7 +7,7 @@ const Footer = observer(() => {
         <div className={styles.footerBlock}>
             <div className={styles.infoBlock}>
                 <div>
-                    <h3>Информация</h3>
+                    <span>Информация</span>
                     <div>
                         <div>
                             Политика конфиденциальности
@@ -24,7 +24,7 @@ const Footer = observer(() => {
                     </div>
                 </div>
                 <div>
-                    <h3>Контакты</h3>
+                    <span>Контакты</span>
                     <div>
                         <div>
                             Телефон: +7(931)-208-28-94
@@ -35,7 +35,7 @@ const Footer = observer(() => {
                     </div>
                 </div>
                 <div>
-                    <h3>Социальные сети</h3>
+                    <span>Социальные сети</span>
                     <div>
                         <div>
                             ВКонтакте

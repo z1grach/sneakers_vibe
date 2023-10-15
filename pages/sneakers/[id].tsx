@@ -6,7 +6,7 @@ import path from "path";
 import {ISneakers} from "@/interface";
 import SneakerMainContent from "@/components/sneakerPage/SneakerMainContent";
 
-export default function Page({sneaker}) {
+export default function ProductPage({sneaker}) {
     return (
         <>
             <Head>
