@@ -10,6 +10,8 @@ const SneakerImageMobile = observer(({sneaker}: { sneaker: ISneakers }) => {
     let hasSwipeState = false;
     let hasSwiping = false;
     let transform = 0;
+    let countImg = 4;
+    let touchIdentifier = -1;
 
 
     const move = (data: any) => {
@@ -22,19 +24,36 @@ const SneakerImageMobile = observer(({sneaker}: { sneaker: ISneakers }) => {
 
         const valueX = transform * data.itcssWidth;
         data.elItems.style.transform = `translate(${valueX}px, 0px)`;
-
     }
 
     const handleMouseUp = (e: any) => {
-        console.log(e.type)
         if (!hasSwipeState) {
+            touchIdentifier = -1;
             return;
         }
-        const event = e.type.search('touch') === 0 ? e.changedTouches[0] : e;
+
+        let event;
+        if (e.type.search('touch') === 0) {
+            event = e.changedTouches[0];
+
+            if (event.identifier !== touchIdentifier) return;
+        } else {
+            event = e;
+        }
+
         let diffPosX = swipeStartPosX - event.clientX;
-        if (transform === 0 && diffPosX < 0) return;
-        if (transform === -4 && diffPosX > 0) return;
+        if (transform === 0 && diffPosX < 0) {
+            touchIdentifier = -1;
+            hasSwipeState = false;
+            return;
+        }
+        if (transform === -countImg && diffPosX > 0) {
+            touchIdentifier = -1;
+            hasSwipeState = false;
+            return;
+        }
         if (diffPosX === 0) {
+            touchIdentifier = -1;
             hasSwipeState = false;
             return;
         }
@@ -64,12 +83,21 @@ const SneakerImageMobile = observer(({sneaker}: { sneaker: ISneakers }) => {
             });
         }
 
+        touchIdentifier = -1;
         hasSwipeState = false;
     }
 
 
     const handleMouseDown = (e: any) => {
-        const event = e.type.search('touch') === 0 ? e.touches[0] : e;
+        if (hasSwipeState) return;
+
+        let event;
+        if (e.type.search('touch') === 0) {
+            event = e.changedTouches[0];
+            touchIdentifier = event.identifier;
+        } else {
+            event = e;
+        }
 
         swipeStartPosX = event.clientX;
         swipeStartPosY = event.clientY;
@@ -78,15 +106,20 @@ const SneakerImageMobile = observer(({sneaker}: { sneaker: ISneakers }) => {
     }
 
     const handleMouseMove = (e: any) => {
-        if (!hasSwipeState) {
-            return;
+        if (!hasSwipeState) return;
+
+        let event;
+        if (e.type.search('touch') === 0) {
+            event = e.changedTouches[0];
+            if (event.identifier !== touchIdentifier) return;
+        } else {
+            event = e;
         }
 
-        const event = e.type.search('touch') === 0 ? e.touches[0] : e;
         const diffPosX = swipeStartPosX - event.clientX;
         const diffPosY = swipeStartPosY - event.clientY;
         if (transform === 0 && diffPosX < 0) return;
-        if (transform === -4 && diffPosX > 0) return;
+        if (transform === -countImg && diffPosX > 0) return;
 
         if (!hasSwiping) {
             if (Math.abs(diffPosY) > Math.abs(diffPosX) || Math.abs(diffPosX) === 0) {
@@ -119,10 +152,10 @@ const SneakerImageMobile = observer(({sneaker}: { sneaker: ISneakers }) => {
                 onMouseDown={handleMouseDown}
                 onMouseUp={handleMouseUp}
                 onMouseMove={handleMouseMove}
+                onMouseLeave={handleMouseUp}
                 onTouchStart={handleMouseDown}
                 onTouchEnd={handleMouseUp}
                 onTouchMove={handleMouseMove}
-                onMouseLeave={handleMouseUp}
                 onTouchCancel={handleMouseUp}
             >
                 <div

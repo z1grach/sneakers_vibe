@@ -17,6 +17,7 @@ export default class CoreStore {
     showModalDelivery: boolean = false;
     showModalSize: boolean = false;
     mobileMode: boolean = false;
+    smallScreen: boolean = false;
     showMobileFilter: boolean = false;
 
 
@@ -26,6 +27,10 @@ export default class CoreStore {
 
     setMobileMode(data: boolean) {
         this.mobileMode = data;
+    }
+
+    setSmallScreen(data: boolean) {
+        this.smallScreen = data;
     }
 
     setMobileFilter(data: boolean) {

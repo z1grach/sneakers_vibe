@@ -3,7 +3,8 @@
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  padding: 5px;
+  //padding: 1em 0;
+  padding-bottom: 1em;
 
   .blockNavArrow {
     display: flex;
@@ -31,5 +32,11 @@
         text-decoration: underline;
       }
     }
+  }
+}
+
+@media (max-width: 1000px) {
+  .blockNav {
+    padding: 1em !important;
   }
 }

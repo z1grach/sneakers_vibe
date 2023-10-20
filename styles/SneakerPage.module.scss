@@ -20,7 +20,7 @@
       user-select: none;
 
       .sneakersBlockImageList {
-        min-width: 100px;
+        padding: 0 12px;
         display: flex;
         flex-flow: column;
         align-items: center;
@@ -29,17 +29,13 @@
         .sneakersBlockImageListElem {
           border: 2px solid rgba(0, 0, 0, 0);
           padding: 2px;
-          margin-bottom: 10px;
           border-radius: 3px;
           cursor: pointer;
           user-select: none;
+          margin-bottom: 10px;
+          overflow: hidden;
 
-          div {
-            height: 65px;
-            user-select: none;
-          }
-
-          img {
+          div, img {
             width: 65px;
             height: 65px;
             user-select: none;
@@ -72,7 +68,6 @@
             position: absolute;
             width: 300px;
             height: 300px;
-            border: 2px solid #000;
             border-radius: 50%;
             cursor: none;
             z-index: 5;
@@ -83,13 +78,13 @@
     }
 
     .sneakersBlockInfo {
-      width: 350px;
+      width: 400px;
       padding: 1em;
       display: flex;
       flex-flow: column;
-      background-color: rgba(0, 0, 0, 0.15);
-      border-radius: 6px;
-      box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2);
+      background-color: #ffffff;
+      //border-radius: 6px;
+      //box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2);
 
       .infoName {
         width: 100%;
@@ -115,6 +110,7 @@
 
       .infoBlockArticle {
         width: 100%;
+        margin: 0 auto;
         padding: .5em;
         cursor: pointer;
         display: flex;
@@ -146,8 +142,9 @@
       }
 
       .infoBlockButton {
-        width: 90%;
-        margin: 10px auto 5px auto;
+        width: 100%;
+        max-width: 400px;
+        margin: 25px auto 0 auto;
         padding: .5em;
         text-align: center;
         background-color: black;
@@ -167,7 +164,8 @@
       }
 
       .infoBlockButtonModal {
-        width: 90%;
+        width: 100%;
+        max-width: 400px;
         margin: 10px auto 5px auto;
         padding: .5em;
         text-align: center;
@@ -184,7 +182,7 @@
 
       .infoBlockReplacement {
         width: 100%;
-        margin-top: 10px;
+        margin-top: 30px;
         display: flex;
         flex-flow: column;
 
@@ -264,7 +262,7 @@
 
   .itcss {
     position: relative;
-    max-width: 600px;
+    width: 100%;
     margin-right: auto;
     margin-left: auto;
     user-select: none;
@@ -278,14 +276,13 @@
         display: flex;
         transform-style: preserve-3d;
         backface-visibility: hidden;
-        transition: transform 0.5s ease;
         will-change: transform;
         user-select: none;
 
         .itcss__item {
           position: relative;
           flex: 0 0 100%;
-          max-width: 100%;
+          width: 100%;
           transform-style: preserve-3d;
           backface-visibility: hidden;
           will-change: transform;
@@ -325,6 +322,12 @@
   }
 }
 
+@media (max-width: 1320px) {
+  .sneakersBlockInfo {
+    width: 350px !important;
+  }
+}
+
 @media (max-width: 1300px) {
   .mainBlock {
     width: 100%;
@@ -336,9 +339,11 @@
     width: 500px !important;
     height: 600px !important;
   }
+}
 
+@media (max-width: 1050px) {
   .sneakersBlockInfo {
-    width: 300px !important;
+    width: 330px !important;
   }
 }
 
@@ -354,10 +359,65 @@
 
   .sneakersBlockInfo {
     width: 100% !important;
+    background-color: #ffffff !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .sneakersBlockImageMainDiv img {
+    width: 450px !important;
+    height: 500px !important;
+  }
+
+  .infoBlockButton, .infoBlockButtonModal {
+    padding: 1em !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .sneakersBlockImage {
+    padding: .5em !important;
+  }
+
+  .sneakersBlockImageListElem {
+    div, img {
+      width: 50px !important;
+      height: 50px !important;
+    }
   }
 
   .sneakersBlockImageMainDiv img {
-    width: 250px !important;
-    height: 400px !important;
+    width: 400px !important;
+    height: 450px !important;
+  }
+}
+
+@media (max-width: 550px) {
+  .sneakersBlockImageList {
+    padding: 0 8px !important;
+
+    .sneakersBlockImageListElem {
+      div, img {
+        width: 50px !important;
+        height: 50px !important;
+      }
+    }
+  }
+
+  .sneakersBlockImageMainDiv img {
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 450px) {
+  .sneakersBlockImageList {
+    padding: 0 5px !important;
+  }
+
+  .sneakersBlockImageMainDiv img {
+    width: 100% !important;
+    height: 350px !important;
   }
 }

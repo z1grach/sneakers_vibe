@@ -19,15 +19,15 @@ const AppStart = observer(({Component, pageProps}: AppProps) => {
         }
 
         window.onresize = (e: any) => {
-            if (e.currentTarget.innerWidth <= 1000 && !coreStore.mobileMode) {
-                coreStore.setMobileMode(true);
-            } else if (e.currentTarget.innerWidth > 1000 && !isMobileDevice() && coreStore.mobileMode) {
-                coreStore.setMobileMode(false);
+            if (e.currentTarget.innerWidth <= 900 && !coreStore.smallScreen) {
+                coreStore.setSmallScreen(true);
+            } else if (e.currentTarget.innerWidth > 900 && coreStore.smallScreen) {
+                coreStore.setSmallScreen(false);
             }
         }
 
-        if (window.innerWidth <= 1000 && !coreStore.mobileMode) {
-            coreStore.setMobileMode(true);
+        if (window.innerWidth <= 900 && !coreStore.smallScreen) {
+            coreStore.setSmallScreen(true);
         }
     }, []);
 

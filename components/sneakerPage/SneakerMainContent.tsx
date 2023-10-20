@@ -15,7 +15,7 @@ const SneakerMainContent = observer(({sneaker}: { sneaker: ISneakers }) => {
         <div className={styles.mainBlock}>
             <NavSection pages={[{link: '/', name: 'Главная'}, {link: '/sneakers', name: 'Кроссовки'}]}/>
             <div className={styles.sneakersBlock}>
-                {coreStore.mobileMode
+                {coreStore.smallScreen
                     ? <SneakerImageMobile sneaker={sneaker}/>
                     : <SneakerPageImage sneaker={sneaker}/>
                 }
