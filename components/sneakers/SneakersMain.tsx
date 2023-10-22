@@ -12,7 +12,7 @@ const SneakersMain = observer(({sneakers}: { sneakers: ISneakers[] }) => {
 
     return (
         <div className={styles.mainContent}>
-            {coreStore.mobileMode
+            {coreStore.smallScreen
                 ? <FilterMobile/>
                 : <Filter/>
             }

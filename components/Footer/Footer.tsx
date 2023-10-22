@@ -1,25 +1,26 @@
 import React from 'react';
 import {observer} from "mobx-react-lite";
 import styles from "@/styles/Footer.module.scss";
+import Link from "next/link";
 
 const Footer = observer(() => {
     return (
-        <div className={styles.footerBlock}>
+        <footer className={styles.footerBlock}>
             <div className={styles.infoBlock}>
                 <div>
                     <span>Информация</span>
-                    <div>
+                    <div className={styles.listMenu}>
                         <div>
-                            Политика конфиденциальности
+                            <Link href="/about/payment">Оплата и доставка</Link>
                         </div>
                         <div>
-                            Оплата и доставка
+                            <Link href="/about/product">Таблица размеров</Link>
                         </div>
                         <div>
-                            Возврат
+                            <Link href="/about/refund">Возврат</Link>
                         </div>
                         <div>
-                            Таблица размеров
+                            <Link href="/about/policy">Политика конфиденциальности</Link>
                         </div>
                     </div>
                 </div>
@@ -36,12 +37,15 @@ const Footer = observer(() => {
                 </div>
                 <div>
                     <span>Социальные сети</span>
-                    <div>
+                    <div className={styles.listMenu}>
                         <div>
-                            ВКонтакте
+                            <a href={'https://vk.com/sneakersvibe'}>ВКонтакте</a>
                         </div>
                         <div>
-                            Telegram
+                            <a href={'https://t.me/z1grach'}>Telegram</a>
+                        </div>
+                        <div>
+                            <a href={'https://wa.me/89312082894'}>WhatsApp</a>
                         </div>
                     </div>
                 </div>
@@ -49,7 +53,7 @@ const Footer = observer(() => {
             <div className={styles.copyRight}>
                 © SneakersVibe 2023
             </div>
-        </div>
+        </footer>
     );
 });
 

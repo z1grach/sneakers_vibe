@@ -13,6 +13,40 @@ import ModalSize from "@/components/Modal/ModalSize";
 const SneakerPageInfoBlock = observer(({sneaker}: { sneaker: ISneakers }) => {
     const coreStore = useStore();
 
+    const handleCopyArticle = () => {
+        const tempInput = document.createElement("input");
+        tempInput.value = sneaker.article;
+
+        // Добавляем временный элемент на страницу
+        document.body.appendChild(tempInput);
+
+        // Выделяем текст во временном элементе
+        tempInput.select();
+
+        // Копируем выделенный текст в буфер обмена
+        document.execCommand("copy");
+
+        // Удаляем временный элемент
+        document.body.removeChild(tempInput);
+    }
+
+    const handleCopyTel = () => {
+        const tempInput = document.createElement("input");
+        tempInput.value = '+7 931 208 28 94';
+
+        // Добавляем временный элемент на страницу
+        document.body.appendChild(tempInput);
+
+        // Выделяем текст во временном элементе
+        tempInput.select();
+
+        // Копируем выделенный текст в буфер обмена
+        document.execCommand("copy");
+
+        // Удаляем временный элемент
+        document.body.removeChild(tempInput);
+    }
+
     return (
         <>
             <div className={styles.sneakersBlockInfo}>
@@ -28,7 +62,10 @@ const SneakerPageInfoBlock = observer(({sneaker}: { sneaker: ISneakers }) => {
                     {sneaker.price + ' ₽'}
                 </div>
                 <hr/>
-                <div className={styles.infoBlockArticle}>
+                <div
+                    className={styles.infoBlockArticle}
+                    onClick={handleCopyArticle}
+                >
                     <div className={styles.infoBlockArticleText}>
                         <div className={styles.infoBlockArticleTitle}>Артикул</div>
                         <div className={styles.infoArticle}>{sneaker.article}</div>
@@ -36,15 +73,18 @@ const SneakerPageInfoBlock = observer(({sneaker}: { sneaker: ISneakers }) => {
                     <div className={styles.infoBlockArticleIcon}>
                         <Image
                             src={CopyIcon}
-                            width={20}
-                            height={20}
+                            width={16}
+                            height={16}
                             alt="copy_svg"
                             draggable={false}
                         />
                     </div>
                 </div>
                 <hr/>
-                <div className={styles.infoBlockArticle}>
+                <div
+                    className={styles.infoBlockArticle}
+                    onClick={handleCopyTel}
+                >
                     <div className={styles.infoBlockArticleText}>
                         <div className={styles.infoBlockArticleTitle}>Телефон</div>
                         <div className={styles.infoArticle}>+7 931 208 28 94</div>
@@ -52,8 +92,8 @@ const SneakerPageInfoBlock = observer(({sneaker}: { sneaker: ISneakers }) => {
                     <div className={styles.infoBlockArticleIcon}>
                         <Image
                             src={CopyIcon}
-                            width={20}
-                            height={20}
+                            width={16}
+                            height={16}
                             alt="copy_svg"
                             draggable={false}
                         />

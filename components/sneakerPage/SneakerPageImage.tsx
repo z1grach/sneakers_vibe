@@ -137,13 +137,11 @@ const SneakerPageImage = observer(({sneaker}: { sneaker: ISneakers }) => {
                             onClick={() => setImage(el)}
                             draggable={false}
                         >
-                            <div draggable={false}>
-                                <img
-                                    src={`/${el}.jpg`}
-                                    alt={sneaker.brand + ' ' + sneaker.model + ' ' + el}
-                                    draggable={false}
-                                />
-                            </div>
+                            <img
+                                src={`/${el}.jpg`}
+                                alt={sneaker.brand + ' ' + sneaker.model + ' ' + el}
+                                draggable={false}
+                            />
                         </div>
                     )
                 })}

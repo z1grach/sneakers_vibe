@@ -1,6 +1,5 @@
 import React, {useEffect} from 'react';
 import {observer} from "mobx-react-lite";
-import Footer from "@/components/Footer/Footer";
 import Header from "@/components/header/Header";
 import {AppProps} from "next/app";
 import {useStore} from "@/components/mobx/mobxProvider";
@@ -34,7 +33,6 @@ const AppStart = observer(({Component, pageProps}: AppProps) => {
     return (
         <Header>
             <Component {...pageProps} />
-            <Footer/>
         </Header>
     );
 });

@@ -72,9 +72,7 @@
           border-radius: 6px;
           overflow: hidden;
           cursor: pointer;
-          background-color: #f2f2f2;
-          border: 1px solid #8f8f8f;
-          transition: .1s linear;
+          background-color: #e1e1e1;
 
           .imageDiv {
             width: 100%;
@@ -83,8 +81,6 @@
             img {
               width: 100%;
               display: block;
-              transition: .2s linear;
-              transform: scale(1.1);
             }
           }
 
@@ -94,7 +90,6 @@
             display: flex;
             flex-flow: column nowrap;
             text-align: center;
-            //color: white;
 
             span {
               display: block;
@@ -105,10 +100,10 @@
             }
           }
 
-          /*&:hover {
-            transform: scale(1.01);
-            box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.3);
-          }*/
+          &:hover {
+            background-color: #bbbbbb;
+            box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.3);
+          }
         }
       }
     }
@@ -262,7 +257,15 @@
   .mainContent {
     padding: .5em !important;
   }
+}
 
+@media (max-width: 950px) {
+  .shellElem {
+    width: 50% !important;
+  }
+}
+
+@media (max-width: 900px) {
   .filter {
     display: none !important;
   }
@@ -270,17 +273,22 @@
   .sneakersMain {
     width: 100% !important;
   }
+}
 
+@media (max-width: 500px) {
   .shellElem {
-    width: 50% !important;
     padding: .2em !important;
+  }
+}
 
-    .sneakersElement:hover {
-      box-shadow: none !important;
-    }
+@media (max-width: 300px) {
+  .mainContent {
+    padding: .2em !important;
+  }
+}
 
-    .infoDiv {
-      //font-size: 0.8em;
-    }
+@media (max-width: 250px) {
+  .shellElem {
+    width: 100% !important;
   }
 }

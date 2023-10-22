@@ -35,18 +35,18 @@
           margin-bottom: 10px;
           overflow: hidden;
 
-          div, img {
+          img {
             width: 65px;
             height: 65px;
             user-select: none;
           }
 
           &:hover {
-            border: 2px solid rgba(0, 0, 255, 0.5);
+            border: 2px solid rgba(115, 115, 115, 0.5);
           }
 
           &.active {
-            border: 2px solid rgba(0, 0, 255, 0.8);
+            border: 2px solid rgba(80, 80, 80, 0.8);
           }
         }
       }
@@ -132,8 +132,11 @@
 
         .infoBlockArticleIcon {
           width: 20%;
-          text-align: center;
           opacity: 0.6;
+
+          img{
+            margin: 0 auto;
+          }
         }
 
         &:hover .infoBlockArticleIcon {
@@ -221,10 +224,7 @@
             }
 
             &.active {
-              img {
-                border: 1px solid rgba(0, 0, 0, 0.8);
-                opacity: 0.8;
-              }
+              opacity: 0.5 !important;
             }
 
             &:last-child {
@@ -382,7 +382,7 @@
   }
 
   .sneakersBlockImageListElem {
-    div, img {
+    img {
       width: 50px !important;
       height: 50px !important;
     }
@@ -399,7 +399,7 @@
     padding: 0 8px !important;
 
     .sneakersBlockImageListElem {
-      div, img {
+      img {
         width: 50px !important;
         height: 50px !important;
       }

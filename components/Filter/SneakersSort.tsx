@@ -13,7 +13,7 @@ const SneakersSort = observer(() => {
     }
 
     const handleOpenFilter = () => {
-        if (coreStore.mobileMode) {
+        if (coreStore.smallScreen) {
             coreStore.setMobileFilter(true);
         }
     }
@@ -21,9 +21,9 @@ const SneakersSort = observer(() => {
     return (
         <div
             className={styles.divSorting}
-            style={{justifyContent: coreStore.mobileMode ? 'space-between' : 'flex-end'}}
+            style={{justifyContent: coreStore.smallScreen ? 'space-between' : 'flex-end'}}
         >
-            {coreStore.mobileMode &&
+            {coreStore.smallScreen &&
                 <div
                     onClick={handleOpenFilter}
                     className={styles.divSortingFilter}

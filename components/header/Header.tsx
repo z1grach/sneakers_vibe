@@ -4,20 +4,26 @@ import Image from 'next/image';
 import SneakerSvg from '@/public/sneaker_svg.svg';
 import React from 'react';
 import Link from "next/link";
+import Footer from "@/components/Footer/Footer";
 
 const Header = observer(({children}: { children: React.ReactNode }) => {
     return (
-        <main>
+        <>
             <header className={styles.header}>
                 <div className={styles.headerContent}>
                     <div className={styles.blockIcon}>
-                        <Image
-                            src={SneakerSvg}
-                            width={50}
-                            height={50}
-                            alt="sneaker_svg"
-                            priority={true}
-                        />
+                        <Link
+                            className={styles.pageLinkIcon}
+                            href="/"
+                        >
+                            <Image
+                                src={SneakerSvg}
+                                width={50}
+                                height={50}
+                                alt="sneaker_svg"
+                                priority={true}
+                            />
+                        </Link>
                     </div>
                     <nav className={styles.navBar}>
                         <Link
@@ -41,8 +47,11 @@ const Header = observer(({children}: { children: React.ReactNode }) => {
                     </nav>
                 </div>
             </header>
-            {children}
-        </main>
+            <main style={{minHeight: '100vh'}}>
+                {children}
+            </main>
+            <Footer/>
+        </>
     )
 });
 

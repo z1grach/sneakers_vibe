@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import styles from '@/styles/Home.module.scss'
 import React from "react";
 
 export default function Home() {
@@ -15,9 +14,9 @@ export default function Home() {
                 />
                 <link rel="icon" href="/sneaker_svg.svg"/>
             </Head>
-            <main>
+            <div>
 
-            </main>
+            </div>
         </>
     )
 }
