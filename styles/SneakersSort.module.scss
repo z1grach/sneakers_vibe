@@ -1,0 +1,32 @@
+.divSorting {
+  width: 50%;
+  display: flex;
+  flex-flow: row nowrap;
+
+  /*& > div {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+
+    .filterIcon {
+      display: flex;
+      align-items: center;
+      margin-right: 5px;
+    }
+  }*/
+
+  .divSortingFilter {
+    height: 40px;
+    text-align: center;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 200px;
+    outline: 0;
+    border: 0;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}

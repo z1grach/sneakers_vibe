@@ -2,6 +2,7 @@ import {makeAutoObservable} from "mobx";
 import {IFilter} from "@/interface";
 
 export default class CoreStore {
+    search: string = '';
     filter: IFilter = {
         brand: [],
         color: [],
@@ -97,5 +98,9 @@ export default class CoreStore {
 
     setPageList(data: number) {
         this.pageList = data;
+    }
+
+    setSearch(data: string) {
+        this.search = data;
     }
 }

@@ -6,18 +6,22 @@ import Filter from "@/components/Filter/Filter";
 import SneakersList from "@/components/sneakers/SneakersList";
 import {useStore} from "@/components/mobx/mobxProvider";
 import FilterMobile from "@/components/FilterMobile/FilterMobile";
+import Search from "@/components/Search/Search";
 
 const SneakersMain = observer(({sneakers}: { sneakers: ISneakers[] }) => {
     const coreStore = useStore();
 
     return (
-        <div className={styles.mainContent}>
-            {coreStore.smallScreen
-                ? <FilterMobile/>
-                : <Filter/>
-            }
-            <SneakersList sneakers={sneakers}/>
-        </div>
+        <>
+            <Search sneakers={sneakers}/>
+            <div className={styles.mainContent}>
+                {coreStore.smallScreen
+                    ? <FilterMobile/>
+                    : <Filter/>
+                }
+                <SneakersList sneakers={sneakers}/>
+            </div>
+        </>
     );
 });
 

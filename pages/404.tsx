@@ -8,5 +8,5 @@ export default function Custom404() {
         router.push('/sneakers');
     }, []);
 
-    return null;
+    return <></>;
 }

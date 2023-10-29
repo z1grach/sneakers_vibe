@@ -1,6 +1,4 @@
 .mainContent {
-  //border: 2px solid blue;
-
   padding: 2em;
   width: 90%;
   margin: 0 auto;
@@ -21,7 +19,7 @@
       padding: 3em;
 
       &:hover {
-        background-color: #f3f3f3;
+        background-color: #e0e0e0;
       }
 
       &:nth-child(2n+1) {

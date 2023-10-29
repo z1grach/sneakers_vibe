@@ -3,7 +3,6 @@ import {observer} from "mobx-react-lite";
 import styles from "@/styles/Sneakers.module.scss";
 import {ISneakers} from "@/interface";
 import {useStore} from "@/components/mobx/mobxProvider";
-import SneakersSort from "@/components/Filter/SneakersSort";
 import SneakersPageCount from "@/components/sneakers/SneakersPageCount";
 import Link from 'next/link';
 
@@ -74,7 +73,6 @@ const SneakersList = observer(({sneakers}: { sneakers: ISneakers[] }) => {
 
     return (
         <div className={styles.sneakersMain}>
-            <SneakersSort/>
             {data && data.length
                 ?
                 <>

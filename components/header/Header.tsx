@@ -1,4 +1,4 @@
-import {observer} from "mobx-react";
+import {observer} from "mobx-react-lite";
 import styles from "@/styles/Header.module.scss";
 import Image from 'next/image';
 import SneakerSvg from '@/public/sneaker_svg.svg';

@@ -3,7 +3,7 @@
   max-height: 70px;
   min-height: 60px;
   width: 100%;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, .05);
+  //box-shadow: 0 4px 4px rgba(0, 0, 0, .05);
   position: sticky;
   left: 0;
   top: 0;
@@ -40,7 +40,7 @@
 
       .pageLink {
         position: relative;
-        padding: 5px;
+        padding: 5px 0;
 
         &:after {
           content: '';

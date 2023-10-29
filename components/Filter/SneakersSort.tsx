@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from "@/styles/Sneakers.module.scss";
+import styles from "@/styles/SneakersSort.module.scss";
 import {useStore} from "@/components/mobx/mobxProvider";
 import {observer} from "mobx-react-lite";
 import FilterIcon from "@/public/filter.svg";
@@ -23,7 +23,7 @@ const SneakersSort = observer(() => {
             className={styles.divSorting}
             style={{justifyContent: coreStore.smallScreen ? 'space-between' : 'flex-end'}}
         >
-            {coreStore.smallScreen &&
+            {/*{coreStore.smallScreen &&
                 <div
                     onClick={handleOpenFilter}
                     className={styles.divSortingFilter}
@@ -38,7 +38,7 @@ const SneakersSort = observer(() => {
                     </div>
                     Фильтр
                 </div>
-            }
+            }*/}
             <select
                 name="sorting"
                 value={coreStore.sorting}

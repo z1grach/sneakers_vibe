@@ -3,30 +3,7 @@ import {observer} from "mobx-react-lite";
 import styles from "@/styles/Sneakers.module.scss";
 import {useStore} from "@/components/mobx/mobxProvider";
 import FilterNameReset from "@/components/Filter/FilterNameReset";
-
-const BRAND: string[] = [
-    'Adidas',
-    'New Balance',
-    'Nike',
-    'Puma',
-    'Reebok'
-];
-
-const COLORS: string[] = [
-    'Белый',
-    'Голубой',
-    'Зеленый',
-    'Красный',
-    'Серый',
-    'Синий',
-    'Черный'
-];
-
-const GENDER: string[] = [
-    'Мужской',
-    'Женский',
-    'Унисекс'
-];
+import {BRAND, COLORS, GENDER} from "@/Utils/Utils";
 
 const Filter = observer(() => {
     const coreStore = useStore();
