@@ -1,6 +1,4 @@
 .mainBlock {
-  //border: 2px solid green;
-
   padding: 1em;
   width: 70%;
   margin: 0 auto;
@@ -14,13 +12,12 @@
     justify-content: space-between;
 
     .sneakersBlockImage {
-      padding: 1em;
       display: flex;
       flex-flow: row nowrap;
       user-select: none;
 
       .sneakersBlockImageList {
-        padding: 0 12px;
+        padding: 0 .8em;
         display: flex;
         flex-flow: column;
         align-items: center;
@@ -35,12 +32,6 @@
           margin-bottom: 10px;
           overflow: hidden;
 
-          img {
-            width: 65px;
-            height: 65px;
-            user-select: none;
-          }
-
           &:hover {
             border: 2px solid rgba(115, 115, 115, 0.5);
           }
@@ -52,29 +43,25 @@
       }
 
       .sneakersBlockImageMain {
-        //border: 2px solid green;
+        user-select: none;
 
-        .sneakersBlockImageMainDiv {
+        img {
+          width: 600px;
+          cursor: none;
           user-select: none;
+        }
 
-          img {
-            width: 600px;
-            height: 800px;
-            cursor: none;
-            user-select: none;
-          }
-
-          .zoomedImage {
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            cursor: none;
-            z-index: 5;
-            user-select: none;
-          }
+        .zoomedImage {
+          position: absolute;
+          width: 300px;
+          height: 300px;
+          border-radius: 50%;
+          cursor: none;
+          z-index: 5;
+          user-select: none;
         }
       }
+
     }
 
     .sneakersBlockInfo {
@@ -83,8 +70,6 @@
       display: flex;
       flex-flow: column;
       background-color: #ffffff;
-      //border-radius: 6px;
-      //box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2);
 
       .infoName {
         width: 100%;
@@ -134,7 +119,7 @@
           width: 20%;
           opacity: 0.6;
 
-          img{
+          img {
             margin: 0 auto;
           }
         }
@@ -255,10 +240,8 @@
 }
 
 .blockImageMobile {
-  width: 100%;
-  margin-bottom: 10px;
+  width: 80%;
   user-select: none;
-
 
   .itcss {
     position: relative;
@@ -312,7 +295,6 @@
 @media (max-width: 1700px) {
   .mainBlock {
     width: 80%;
-    max-width: none;
   }
 }
 
@@ -323,101 +305,63 @@
 }
 
 @media (max-width: 1320px) {
-  .sneakersBlockInfo {
-    width: 350px !important;
+  .mainBlock .sneakersBlock .sneakersBlockInfo {
+    width: 350px;
+  }
+
+  .mainBlock .sneakersBlock .sneakersBlockImage .sneakersBlockImageMain img {
+    width: 500px !important;
   }
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 1200px) {
+  .mainBlock {
+    width: 95%;
+  }
+}
+
+@media (max-width: 1200px) {
   .mainBlock {
     width: 100%;
   }
 }
 
-@media (max-width: 1200px) {
-  .sneakersBlockImageMainDiv img {
-    width: 500px !important;
-    height: 600px !important;
-  }
-}
-
 @media (max-width: 1050px) {
-  .sneakersBlockInfo {
-    width: 330px !important;
+  .mainBlock .sneakersBlock .sneakersBlockInfo {
+    width: 330px;
   }
 }
 
 @media (max-width: 1000px) {
   .mainBlock {
-    padding: 0 !important;
-  }
+    padding: 0;
 
-  .sneakersBlock {
-    flex-flow: column !important;
-    align-items: center !important;
-  }
+    .sneakersBlock {
+      flex-flow: column;
+      align-items: center;
 
-  .sneakersBlockInfo {
-    width: 100% !important;
-    background-color: #ffffff !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
+      .sneakersBlockInfo {
+        width: 100%;
+        padding: 2em;
+      }
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .mainBlock .sneakersBlock .sneakersBlockImage {
+    display: none;
   }
 }
 
 @media (max-width: 700px) {
-  .sneakersBlockImageMainDiv img {
-    width: 450px !important;
-    height: 500px !important;
-  }
-
-  .infoBlockButton, .infoBlockButtonModal {
-    padding: 1em !important;
+  .mainBlock .sneakersBlock .blockImageMobile {
+    width: 90%;
   }
 }
 
 @media (max-width: 600px) {
-  .sneakersBlockImage {
-    padding: .5em !important;
-  }
-
-  .sneakersBlockImageListElem {
-    img {
-      width: 50px !important;
-      height: 50px !important;
-    }
-  }
-
-  .sneakersBlockImageMainDiv img {
-    width: 400px !important;
-    height: 450px !important;
-  }
-}
-
-@media (max-width: 550px) {
-  .sneakersBlockImageList {
-    padding: 0 8px !important;
-
-    .sneakersBlockImageListElem {
-      img {
-        width: 50px !important;
-        height: 50px !important;
-      }
-    }
-  }
-
-  .sneakersBlockImageMainDiv img {
-    width: 100% !important;
-  }
-}
-
-@media (max-width: 450px) {
-  .sneakersBlockImageList {
-    padding: 0 5px !important;
-  }
-
-  .sneakersBlockImageMainDiv img {
-    width: 100% !important;
-    height: 350px !important;
+  .mainBlock .sneakersBlock .blockImageMobile {
+    width: 100%;
   }
 }

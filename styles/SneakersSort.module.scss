@@ -2,18 +2,13 @@
   width: 50%;
   display: flex;
   flex-flow: row nowrap;
+  justify-content: flex-end;
 
-  /*& > div {
-    display: flex;
+  & > div {
+    display: none;
     align-items: center;
     padding: 0 10px;
-
-    .filterIcon {
-      display: flex;
-      align-items: center;
-      margin-right: 5px;
-    }
-  }*/
+  }
 
   .divSortingFilter {
     height: 40px;
@@ -25,8 +20,34 @@
     outline: 0;
     border: 0;
 
+    .filterIcon {
+      display: flex;
+      align-items: center;
+    }
+
+    span {
+      flex-grow: 1;
+      text-align: center;
+    }
+
     &:focus {
       outline: none;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .divSorting {
+    width: 100%;
+    justify-content: normal;
+
+    & > div {
+      display: flex;
+    }
+
+    .divSortingFilter {
+      width: 50%;
+      background-color: #fff;
     }
   }
 }

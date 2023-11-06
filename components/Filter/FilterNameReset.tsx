@@ -1,6 +1,6 @@
 import React from 'react';
 import {observer} from "mobx-react-lite";
-import styles from "@/styles/Sneakers.module.scss";
+import styles from "./Filter.module.scss";
 import {useStore} from "@/components/mobx/mobxProvider";
 import Image from 'next/image';
 import cancelIcon from '../../public/cancel_icon.svg';

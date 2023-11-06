@@ -21,24 +21,21 @@ const SneakersSort = observer(() => {
     return (
         <div
             className={styles.divSorting}
-            style={{justifyContent: coreStore.smallScreen ? 'space-between' : 'flex-end'}}
         >
-            {/*{coreStore.smallScreen &&
-                <div
-                    onClick={handleOpenFilter}
-                    className={styles.divSortingFilter}
-                >
-                    <div className={styles.filterIcon}>
-                        <Image
-                            src={FilterIcon}
-                            alt="filter"
-                            width={15}
-                            height={15}
-                        />
-                    </div>
-                    Фильтр
+            <div
+                onClick={handleOpenFilter}
+                className={styles.divSortingFilter}
+            >
+                <div className={styles.filterIcon}>
+                    <Image
+                        src={FilterIcon}
+                        alt="filter"
+                        width={15}
+                        height={15}
+                    />
                 </div>
-            }*/}
+                <span>Фильтр</span>
+            </div>
             <select
                 name="sorting"
                 value={coreStore.sorting}

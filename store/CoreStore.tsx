@@ -82,6 +82,7 @@ export default class CoreStore {
             arr.splice(arr.indexOf(data.value), 1);
         }
         this.filter[data.type] = arr;
+        if (data.type === 'brand' && this.search) this.search = '';
     }
 
     resetFilter() {
@@ -102,5 +103,7 @@ export default class CoreStore {
 
     setSearch(data: string) {
         this.search = data;
+
+        if (this.filter.brand.length) this.filter.brand = [];
     }
 }

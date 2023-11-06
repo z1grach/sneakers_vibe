@@ -5,6 +5,7 @@ import {ISneakers} from "@/interface";
 import {useStore} from "@/components/mobx/mobxProvider";
 import SneakersPageCount from "@/components/sneakers/SneakersPageCount";
 import Link from 'next/link';
+import Image from 'next/image'
 
 const SneakersList = observer(({sneakers}: { sneakers: ISneakers[] }) => {
     const coreStore = useStore();
@@ -38,6 +39,12 @@ const SneakersList = observer(({sneakers}: { sneakers: ISneakers[] }) => {
     }
 
     const check = (el: ISneakers) => {
+        if (coreStore.search) {
+            if ((el.brand + ' ' + el.model).toLowerCase().indexOf(coreStore.search.toLowerCase()) === -1) {
+                return false;
+            }
+        }
+
         if (coreStore.filter.brand.length) {
             if (coreStore.filter.brand.indexOf(el.brand) === -1) {
                 return false;
@@ -68,7 +75,7 @@ const SneakersList = observer(({sneakers}: { sneakers: ISneakers[] }) => {
             } else return arr.sort(sorting);
         }
         return undefined;
-    }, [coreStore.filter, coreStore.filter.gender, coreStore.filter.color, coreStore.filter.brand, coreStore.sorting]);
+    }, [coreStore.filter, coreStore.filter.gender, coreStore.filter.color, coreStore.filter.brand, coreStore.sorting, coreStore.search]);
 
 
     return (
@@ -88,12 +95,16 @@ const SneakersList = observer(({sneakers}: { sneakers: ISneakers[] }) => {
                                             className={styles.sneakersElement}
                                             href={`/sneakers/${el.article}`}
                                         >
-                                            <div className={styles.imageDiv}>
-                                                <img
-                                                    src={`/${el.article}_1.jpg`}
-                                                    alt={el.brand + ' ' + el.model}
-                                                />
-                                            </div>
+                                            <Image
+                                                src={`/${el.article}_1.jpg`}
+                                                alt={el.brand + ' ' + el.model}
+                                                width={300}
+                                                height={400}
+                                                style={{
+                                                    width: '100%',
+                                                    height: 'auto',
+                                                }}
+                                            />
                                             <div className={styles.infoDiv}>
                                                 <span>{el.brand}</span>
                                                 <span>{el.model}</span>

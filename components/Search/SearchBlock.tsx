@@ -13,9 +13,7 @@ const SearchBlock = observer(({sneakers}: { sneakers: ISneakers[] }) => {
     const timeoutRef = useRef<any>(null);
 
     const handleClickClose = (event: any) => {
-        console.log(111)
         if (event.target?.dataset?.category !== 'searchElem') {
-            console.log(222)
             document.removeEventListener('click', handleClickClose);
             setShowInput(false);
             setSearch('');
@@ -33,6 +31,7 @@ const SearchBlock = observer(({sneakers}: { sneakers: ISneakers[] }) => {
         elem.lastChild.style.left = rect.left + 'px';
 
         document.addEventListener('click', handleClickClose);
+        document.addEventListener('scroll', handleClickClose, {once: true});
     }
 
     const handleChangeSearch = (e: any) => {
@@ -46,18 +45,24 @@ const SearchBlock = observer(({sneakers}: { sneakers: ISneakers[] }) => {
     }
 
     const handleChooseElem = (elem: string) => {
-        console.log(elem)
         coreStore.setSearch(elem);
     }
 
     const listSearch = useMemo(() => {
         if (search) {
+            const set = new Set();
             const totalSearch = search.toLowerCase().trim();
             const total = [];
             let elem = '';
             for (let i = 0; i < sneakers.length; ++i) {
                 elem = (sneakers[i].brand + ' ' + sneakers[i].model).toLowerCase();
-                if (elem.indexOf(totalSearch) !== -1) total.push(sneakers[i].brand + ' ' + sneakers[i].model);
+
+                if (elem.indexOf(totalSearch) !== -1) {
+                    if (!set.has(sneakers[i].brand + ' ' + sneakers[i].model)) {
+                        total.push(sneakers[i].brand + ' ' + sneakers[i].model);
+                        set.add(sneakers[i].brand + ' ' + sneakers[i].model);
+                    }
+                }
 
                 if (total.length >= 10) break;
             }
@@ -89,18 +94,20 @@ const SearchBlock = observer(({sneakers}: { sneakers: ISneakers[] }) => {
             <div data-category={'searchElem'}
                  className={styles.autoComplete + (showInput ? ' ' + styles.activeAutoComplete : '')}>
                 <div data-category={'searchElem'} className={styles.listAutoComplete}>
-                    {listSearch.map((el: string, index: number) => {
-                        return (
-                            <div
-                                key={`autocomplete_${el}_${index}`}
-                                className={styles.elemAutoComplete}
-                                onClick={() => handleChooseElem(el)}
-                                //data-category={'searchElem'}
-                            >
-                                {el}
-                            </div>
-                        )
-                    })}
+                    {listSearch?.length
+                        ? listSearch.map((el: string, index: number) => {
+                            return (
+                                <div
+                                    key={`autocomplete_${el}_${index}`}
+                                    className={styles.elemAutoComplete}
+                                    onClick={() => handleChooseElem(el)}
+                                >
+                                    {el}
+                                </div>
+                            )
+                        })
+                        : <span>Ничего не найдено</span>
+                    }
                 </div>
             </div>
         </>

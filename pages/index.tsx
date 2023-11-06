@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import React from "react";
+import MainContent from "@/components/Home/MainContent";
 
 export default function Home() {
 
@@ -14,9 +15,7 @@ export default function Home() {
                 />
                 <link rel="icon" href="/sneaker_svg.svg"/>
             </Head>
-            <div>
-
-            </div>
+            <MainContent/>
         </>
     )
 }

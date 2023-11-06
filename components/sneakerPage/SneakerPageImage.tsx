@@ -2,6 +2,7 @@ import React, {useEffect, useMemo, useState} from 'react';
 import {observer} from "mobx-react-lite";
 import styles from "@/styles/SneakerPage.module.scss";
 import {ISneakers} from "@/interface";
+import Image from "next/image";
 
 const SneakerPageImage = observer(({sneaker}: { sneaker: ISneakers }) => {
     const [image, setImage] = useState(`${sneaker.article}_${1}`);
@@ -9,6 +10,7 @@ const SneakerPageImage = observer(({sneaker}: { sneaker: ISneakers }) => {
     const handleMouseMoveImg = (e: any) => {
         const imageElem = e.currentTarget.parentNode.firstChild;
         const zoomedImage = e.currentTarget.parentNode.lastChild;
+        //zoomedImage.style.backgroundImage = `url(${imageElem.src})`;
         zoomedImage.style.backgroundSize = `${imageElem.offsetWidth * 3}px ${imageElem.offsetHeight * 3}px`;
         zoomedImage.style.display = 'block';
 
@@ -137,40 +139,40 @@ const SneakerPageImage = observer(({sneaker}: { sneaker: ISneakers }) => {
                             onClick={() => setImage(el)}
                             draggable={false}
                         >
-                            <img
+                            <Image
                                 src={`/${el}.jpg`}
                                 alt={sneaker.brand + ' ' + sneaker.model + ' ' + el}
                                 draggable={false}
+                                width={65}
+                                height={65}
                             />
                         </div>
                     )
                 })}
             </div>
-
-
             <div
                 className={styles.sneakersBlockImageMain}
                 draggable={false}
             >
-                <div
-                    className={styles.sneakersBlockImageMainDiv}
+                <img
+                    src={`/${image}.jpg`}
+                    alt={sneaker.brand + ' ' + sneaker.model + ' ' + image}
+                    onMouseMove={handleMouseMoveImg}
                     draggable={false}
-                >
-                    <img
-                        src={`/${image}.jpg`}
-                        alt={sneaker.brand + ' ' + sneaker.model + ' ' + image}
-                        onMouseMove={handleMouseMoveImg}
-                        draggable={false}
-                    />
-                    <div
-                        id={'zoom'}
-                        className={styles.zoomedImage}
-                        style={{display: 'none', backgroundImage: `url(/${image}.jpg)`}}
-                        onMouseMove={handleMouseMove}
-                        onMouseLeave={handleMouseLeave}
-                        draggable={false}
-                    />
-                </div>
+                    style={{
+                        width: '600px',
+                        height: 'auto',
+                    }}
+                    loading={'lazy'}
+                />
+                <div
+                    id={'zoom'}
+                    className={styles.zoomedImage}
+                    style={{display: 'none', backgroundImage: `url(/${image}.jpg)`}}
+                    onMouseMove={handleMouseMove}
+                    onMouseLeave={handleMouseLeave}
+                    draggable={false}
+                />
             </div>
         </div>
     );
