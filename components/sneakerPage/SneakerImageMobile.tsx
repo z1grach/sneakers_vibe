@@ -2,6 +2,7 @@ import React, {useEffect, useRef} from 'react';
 import {observer} from "mobx-react-lite";
 import {ISneakers} from "@/interface";
 import styles from "@/styles/SneakerPage.module.scss";
+import Image from "next/image";
 
 const SneakerImageMobile = observer(({sneaker}: { sneaker: ISneakers }) => {
     const itemRef = useRef(null);
@@ -172,50 +173,85 @@ const SneakerImageMobile = observer(({sneaker}: { sneaker: ISneakers }) => {
                             className={styles.itcss__item}
                             draggable={false}
                         >
-                            <img
+                            <Image
                                 src={`/${sneaker.article}_1.jpg`}
+                                loading={'eager'}
                                 draggable={false}
                                 alt={`/${sneaker.article}_1.jpg`}
+                                width={615}
+                                height={820}
+                                style={{
+                                    width: '100%',
+                                    height: 'auto',
+                                }}
                             />
                         </div>
                         <div
                             className={styles.itcss__item}
                             draggable={false}
                         >
-                            <img
+                            <Image
                                 src={`/${sneaker.article}_2.jpg`}
+                                loading={'eager'}
                                 draggable={false}
                                 alt={`/${sneaker.article}_2.jpg`}
+                                width={615}
+                                height={820}
+                                style={{
+                                    width: '100%',
+                                    height: 'auto',
+                                }}
                             />
                         </div>
                         <div
                             className={styles.itcss__item}
                             draggable={false}
                         >
-                            <img
+                            <Image
                                 src={`/${sneaker.article}_3.jpg`}
+                                loading={'eager'}
                                 draggable={false}
                                 alt={`/${sneaker.article}_3.jpg`}
+                                width={615}
+                                height={820}
+                                style={{
+                                    width: '100%',
+                                    height: 'auto',
+                                }}
                             />
                         </div>
                         <div
                             className={styles.itcss__item}
                             draggable={false}
                         >
-                            <img
+                            <Image
                                 src={`/${sneaker.article}_4.jpg`}
+                                loading={'eager'}
                                 draggable={false}
                                 alt={`/${sneaker.article}_4.jpg`}
+                                width={615}
+                                height={820}
+                                style={{
+                                    width: '100%',
+                                    height: 'auto',
+                                }}
                             />
                         </div>
                         <div
                             className={styles.itcss__item}
                             draggable={false}
                         >
-                            <img
+                            <Image
                                 src={`/${sneaker.article}_5.jpg`}
+                                loading={'eager'}
                                 draggable={false}
                                 alt={`/${sneaker.article}_5.jpg`}
+                                width={615}
+                                height={820}
+                                style={{
+                                    width: '100%',
+                                    height: 'auto',
+                                }}
                             />
                         </div>
                     </div>

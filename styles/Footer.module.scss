@@ -53,3 +53,9 @@
     }
   }
 }
+
+@media (max-width: 900px) {
+  .footerBlock .infoBlock .listMenu a:hover {
+    text-decoration: none;
+  }
+}

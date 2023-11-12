@@ -13,6 +13,12 @@
     flex-flow: column;
     margin: 0 auto;
 
+    .notFound {
+      margin-top: 2em;
+      font-size: 1.1em;
+      text-align: center;
+    }
+
     .sneakersList {
       width: 100%;
       display: flex;
@@ -29,16 +35,6 @@
           overflow: hidden;
           cursor: pointer;
           background-color: #e1e1e1;
-
-          /*.imageDiv {
-            width: 100%;
-            overflow: hidden;
-
-            img {
-              width: 100%;
-              display: block;
-            }
-          }*/
 
           .infoDiv {
             width: 100%;
@@ -164,9 +160,13 @@
       width: 100%;
 
       .sneakersList .shellElem {
-
         width: 50%;
         padding: 1em 1.3em;
+
+        .sneakersElement:hover {
+          background-color: #e1e1e1;
+          box-shadow: none;
+        }
       }
     }
   }
@@ -181,52 +181,3 @@
     }
   }
 }
-
-/*
-
-
-@media (max-width: 1300px) {
-  .mainContent {
-    width: 100%;
-  }
-
-  .shellElem {
-    width: 33% !important;
-  }
-}
-
-@media (max-width: 1000px) {
-  .mainContent {
-    padding: .5em !important;
-  }
-}
-
-@media (max-width: 950px) {
-  .shellElem {
-    width: 50% !important;
-  }
-}
-
-@media (max-width: 900px) {
-  .sneakersMain {
-    width: 100% !important;
-  }
-}
-
-@media (max-width: 500px) {
-  .shellElem {
-    padding: .2em !important;
-  }
-}
-
-@media (max-width: 300px) {
-  .mainContent {
-    padding: .2em !important;
-  }
-}
-
-@media (max-width: 250px) {
-  .shellElem {
-    width: 100% !important;
-  }
-}*/

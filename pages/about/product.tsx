@@ -2,6 +2,7 @@ import Head from 'next/head'
 import React from "react";
 import styles from '@/styles/AboutInfo.module.scss'
 import NavSection from "@/components/NavBar/NavSection";
+import Image from "next/image";
 
 export default function Product() {
 
@@ -29,13 +30,17 @@ export default function Product() {
                             ознакомиться с нашим гайдом по выбору правильного размера кроссовок.</p>
                         <p>Вам необходимо замерить длину стопы (не стельки) согласно инструкции ниже и отправить
                             нам.</p>
-                        <div className={styles.imageDiv}>
-                            <img
-                                src={'/razmernaya_tablitsa.jpg'}
-                                draggable={false}
-                                alt={`razmernaya_tablitsa`}
-                            />
-                        </div>
+                        <Image
+                            src={'/razmernaya_tablitsa.jpg'}
+                            draggable={false}
+                            alt={`razmernaya_tablitsa`}
+                            width={600}
+                            height={400}
+                            style={{
+                                height: "auto",
+                                marginTop: '1em'
+                            }}
+                        />
                     </div>
                     <div>
                         <h1>Правила ухода</h1>

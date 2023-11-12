@@ -119,7 +119,7 @@ const SneakersList = observer(({sneakers}: { sneakers: ISneakers[] }) => {
                     <SneakersPageCount pageLength={Math.floor(data.length / 60)}/>
                 </>
                 :
-                <div>
+                <div className={styles.notFound}>
                     По вашему запросу ничего не нашлось
                 </div>
             }

@@ -69,3 +69,9 @@
     width: 100% !important;
   }
 }
+
+@media (max-width: 900px) {
+  .mainContent .blockInfo .blockInfoElem:hover {
+    background-color: rgba(0, 0, 0, 0);
+  }
+}

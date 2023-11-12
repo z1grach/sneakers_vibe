@@ -46,7 +46,7 @@
         user-select: none;
 
         img {
-          width: 600px;
+          width: 500px;
           cursor: none;
           user-select: none;
         }
@@ -69,7 +69,6 @@
       padding: 1em;
       display: flex;
       flex-flow: column;
-      background-color: #ffffff;
 
       .infoName {
         width: 100%;
@@ -242,6 +241,7 @@
 .blockImageMobile {
   width: 80%;
   user-select: none;
+  display: none;
 
   .itcss {
     position: relative;
@@ -257,18 +257,12 @@
 
       .itcss__items {
         display: flex;
-        transform-style: preserve-3d;
-        backface-visibility: hidden;
-        will-change: transform;
         user-select: none;
 
         .itcss__item {
           position: relative;
           flex: 0 0 100%;
           width: 100%;
-          transform-style: preserve-3d;
-          backface-visibility: hidden;
-          will-change: transform;
           user-select: none;
 
           div {
@@ -349,8 +343,14 @@
 }
 
 @media (max-width: 900px) {
-  .mainBlock .sneakersBlock .sneakersBlockImage {
-    display: none;
+  .mainBlock .sneakersBlock {
+    .sneakersBlockImage {
+      display: none;
+    }
+
+    .blockImageMobile {
+      display: block;
+    }
   }
 }
 

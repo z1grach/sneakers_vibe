@@ -1,11 +1,10 @@
-import React, {useEffect, useMemo, useState} from 'react';
+import React from 'react';
 import {observer} from "mobx-react-lite";
 import styles from "@/styles/SneakerPage.module.scss";
 import {ISneakers} from "@/interface";
 import Image from "next/image";
 
 const SneakerPageImage = observer(({sneaker}: { sneaker: ISneakers }) => {
-    const [image, setImage] = useState(`${sneaker.article}_${1}`);
 
     const handleMouseMoveImg = (e: any) => {
         const imageElem = e.currentTarget.parentNode.firstChild;
@@ -110,17 +109,12 @@ const SneakerPageImage = observer(({sneaker}: { sneaker: ISneakers }) => {
         e.currentTarget.style.display = 'none';
     }
 
-    const images = useMemo(() => {
-        const arr: string[] = [];
-        for (let i = 1; i <= 5; ++i) {
-            arr.push(`${sneaker.article}_${i}`);
-        }
-        return arr;
-    }, [sneaker]);
+    const handleChooseImg = (src: string, e: any) => {
+        const mainBlock = e.currentTarget.parentNode.parentNode;
 
-    useEffect(() => {
-        setImage(`${sneaker.article}_${1}`);
-    }, [sneaker]);
+        mainBlock.lastChild.firstChild.src = `/${src}.jpg`;
+        mainBlock.lastChild.lastChild.style.backgroundImage = `url(/${src}.jpg)`;
+    }
 
     return (
         <div
@@ -131,44 +125,90 @@ const SneakerPageImage = observer(({sneaker}: { sneaker: ISneakers }) => {
                 className={styles.sneakersBlockImageList}
                 draggable={false}
             >
-                {images.map((el: string) => {
-                    return (
-                        <div
-                            key={'images_' + el}
-                            className={styles.sneakersBlockImageListElem + (image === el ? ' ' + styles.active : '')}
-                            onClick={() => setImage(el)}
-                            draggable={false}
-                        >
-                            <Image
-                                src={`/${el}.jpg`}
-                                alt={sneaker.brand + ' ' + sneaker.model + ' ' + el}
-                                draggable={false}
-                                width={65}
-                                height={65}
-                            />
-                        </div>
-                    )
-                })}
+                <div
+                    className={styles.sneakersBlockImageListElem/* + ' ' + styles.active*/}
+                    onClick={(e: any) => handleChooseImg(`${sneaker.article}_1`, e)}
+                    draggable={false}
+                >
+                    <Image
+                        src={`/${sneaker.article}_1.jpg`}
+                        alt={sneaker.brand + ' ' + sneaker.model + ' ' + `${sneaker.article}_1`}
+                        draggable={false}
+                        width={65}
+                        height={65}
+                    />
+                </div>
+                <div
+                    className={styles.sneakersBlockImageListElem}
+                    onClick={(e: any) => handleChooseImg(`${sneaker.article}_2`, e)}
+                    draggable={false}
+                >
+                    <Image
+                        src={`/${sneaker.article}_2.jpg`}
+                        alt={sneaker.brand + ' ' + sneaker.model + ' ' + `${sneaker.article}_2`}
+                        draggable={false}
+                        width={65}
+                        height={65}
+                    />
+                </div>
+                <div
+                    className={styles.sneakersBlockImageListElem}
+                    onClick={(e: any) => handleChooseImg(`${sneaker.article}_3`, e)}
+                    draggable={false}
+                >
+                    <Image
+                        src={`/${sneaker.article}_3.jpg`}
+                        alt={sneaker.brand + ' ' + sneaker.model + ' ' + `${sneaker.article}_3`}
+                        draggable={false}
+                        width={65}
+                        height={65}
+                    />
+                </div>
+                <div
+                    className={styles.sneakersBlockImageListElem}
+                    onClick={(e: any) => handleChooseImg(`${sneaker.article}_4`, e)}
+                    draggable={false}
+                >
+                    <Image
+                        src={`/${sneaker.article}_4.jpg`}
+                        alt={sneaker.brand + ' ' + sneaker.model + ' ' + `${sneaker.article}_4`}
+                        draggable={false}
+                        width={65}
+                        height={65}
+                    />
+                </div>
+                <div
+                    className={styles.sneakersBlockImageListElem}
+                    onClick={(e: any) => handleChooseImg(`${sneaker.article}_5`, e)}
+                    draggable={false}
+                >
+                    <Image
+                        src={`/${sneaker.article}_5.jpg`}
+                        alt={sneaker.brand + ' ' + sneaker.model + ' ' + `${sneaker.article}_5`}
+                        draggable={false}
+                        width={65}
+                        height={65}
+                    />
+                </div>
             </div>
             <div
                 className={styles.sneakersBlockImageMain}
                 draggable={false}
             >
                 <img
-                    src={`/${image}.jpg`}
-                    alt={sneaker.brand + ' ' + sneaker.model + ' ' + image}
+                    src={`/${sneaker.article}_1.jpg`}
+                    alt={sneaker.brand + ' ' + sneaker.model}
                     onMouseMove={handleMouseMoveImg}
                     draggable={false}
                     style={{
-                        width: '600px',
+                        width: '550px',
                         height: 'auto',
                     }}
-                    loading={'lazy'}
                 />
                 <div
                     id={'zoom'}
                     className={styles.zoomedImage}
-                    style={{display: 'none', backgroundImage: `url(/${image}.jpg)`}}
+                    style={{display: 'none', backgroundImage: `url(/${sneaker.article}_1.jpg)`}}
                     onMouseMove={handleMouseMove}
                     onMouseLeave={handleMouseLeave}
                     draggable={false}
