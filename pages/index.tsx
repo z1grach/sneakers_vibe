@@ -1,8 +1,13 @@
 import Head from 'next/head'
-import React from "react";
-import MainContent from "@/components/Home/MainContent";
+import React, {useEffect} from "react";
+import {useRouter} from "next/router";
 
 export default function Home() {
+    const router = useRouter();
+
+    useEffect(() => {
+        router.push('/sneakers');
+    }, []);
 
     return (
         <>
@@ -15,7 +20,7 @@ export default function Home() {
                 />
                 <link rel="icon" href="/sneaker_svg.svg"/>
             </Head>
-            <MainContent/>
+            <></>
         </>
     )
 }

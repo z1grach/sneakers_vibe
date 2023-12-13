@@ -47,7 +47,7 @@ const Header = observer(({children}: { children: React.ReactNode }) => {
                     </nav>
                 </div>
             </header>
-            <main style={{minHeight: '100vh'}}>
+            <main style={{minHeight: '80vh'}}>
                 {children}
             </main>
             <Footer/>

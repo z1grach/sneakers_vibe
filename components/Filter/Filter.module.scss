@@ -1,13 +1,13 @@
 .filter {
   position: sticky;
-  min-width: 200px;
+  width: 200px;
   padding: .5em;
   display: flex;
   flex-flow: column;
   top: 10vh;
-  height: 85vh;
+  max-height: 85vh;
   overflow-y: auto;
-  bottom: 300px;
+  //bottom: 300px;
 
   .filterName {
     width: 100%;
