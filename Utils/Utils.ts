@@ -1,9 +1,7 @@
 export const BRAND: string[] = [
     'Adidas',
     'New Balance',
-    'Nike',
-    'Puma',
-    'Reebok'
+    'Nike'
 ];
 
 export const COLORS: string[] = [
@@ -18,6 +16,5 @@ export const COLORS: string[] = [
 
 export const GENDER: string[] = [
     'Мужской',
-    'Женский',
-    'Унисекс'
+    'Женский'
 ];
